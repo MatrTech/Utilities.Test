@@ -345,6 +345,11 @@ namespace Matr.Utilities.Test.UnitTests
         [TestMethod]
         public void GetRegisteredServices_MultiRegistered_NotBeEmpty()
         {
+            foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Console.WriteLine(asm.FullName);
+            }
+
             // Arrange
             var factory = new GenericFactory();
             factory.RegisterOrReplaceService(new TestServiceWithoutDependencies());

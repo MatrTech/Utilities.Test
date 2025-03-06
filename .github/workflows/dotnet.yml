@@ -18,15 +18,13 @@ jobs:
             9.0.x
             10.0.x
 
-      - name: Restore dependencies
-        run: dotnet restore
+      # - name: Restore dependencies
+      #   run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+      # - name: Build
+      #   run: dotnet build --configuration Release --no-restore
 
       - name: Run .NET Framework 4.7 Tests
-        run: |
-          $env:DOTNET_ROLL_FORWARD="Disable"
-          dotnet test --framework net47
+        run: dotnet test --framework net47
       # - name: Test
       #   run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
