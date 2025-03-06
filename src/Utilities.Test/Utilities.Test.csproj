@@ -51,7 +51,7 @@
 		<Compile Include="GenericFactory.cs" />
 	</ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net47' OR '$(TargetFramework)' == 'netstandard2.0' ">
 		<Compile Include="GenericFactory_fmw.cs" />
 	</ItemGroup>
 </Project>
