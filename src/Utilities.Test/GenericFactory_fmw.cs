@@ -32,7 +32,6 @@ namespace Matr.Utilities.Test
         {
             try
             {
-
                 return container.Resolve((x as TypedService).ServiceType);
             }
             catch (DependencyResolutionException)
@@ -51,8 +50,9 @@ namespace Matr.Utilities.Test
                 .ForEach(x => containerBuilder.RegisterType(x.ServiceType));
 
             services.Where(x => x.Service != null)
-                      .ToList()
-                      .ForEach(x => containerBuilder.RegisterInstance(x.Service).As(x.ServiceType));
+                .ToList()
+                .ForEach(x => containerBuilder.RegisterInstance(x.Service).As(x.ServiceType));
+
             return containerBuilder;
         }
     }
