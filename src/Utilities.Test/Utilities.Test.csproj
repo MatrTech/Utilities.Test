@@ -45,14 +45,18 @@
 		<Compile Include="TestBase.cs" />
 		<Compile Include="GenericFactory_base.cs" />
 		<Compile Include="Extensions\GenericFactoryExtensions.cs" />
-		<Compile Include="GenericFactory_fmw.cs" />
+		
 	</ItemGroup>
 
-	<!-- <ItemGroup Condition=" '$(TargetFramework)' == 'net10.0' OR '$(TargetFramework)' == 'net9.0' OR '$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net7.0' OR '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net5.0' OR '$(TargetFramework)' == 'netstandard2.1' ">
-		<Compile Include="GenericFactory.cs" />
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net10.0' OR '$(TargetFramework)' == 'net9.0' OR '$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net7.0' OR '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net5.0' OR '$(TargetFramework)' == 'netstandard2.1' ">
+    <Compile Include="GenericFactory.cs" />
 	</ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net47' OR '$(TargetFramework)' == 'netstandard2.0' ">
-		<Compile Include="GenericFactory_fmw.cs" />
-	</ItemGroup> -->
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net47' ">
+			<Compile Include="GenericFactory_fmw.cs" />
+	</ItemGroup>
+
+	<Target Name="LogResolvedFiles" AfterTargets="Compile">
+    <Message Text="Using file: %(Compile.Identity)" Importance="high" />
+	</Target>
 </Project>

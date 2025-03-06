@@ -20,9 +20,12 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore
-      
+
       - name: Build
-        run: dotnet build --configuration Release --no-restore 
-      
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Check .NET versions
+        run: dotnet --list-runtimes
+
       - name: Test
-        run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
+        run: dotnet test --configuration Release --no-restore --no-build --verbosity detailed
