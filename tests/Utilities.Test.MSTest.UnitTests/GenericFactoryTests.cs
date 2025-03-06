@@ -8,167 +8,167 @@ namespace Matr.Utilities.Test.UnitTests
     [TestClass]
     public class GenericFactoryTests
     {
-        [TestMethod]
-        public void CreateWithoutDependencies_WithoutDependencies_ReturnTestObject()
-        {
-            // Arrange
-            GenericFactory factory = new GenericFactory();
-
-            // Act
-            var result = factory.Create<TestServiceWithoutDependencies>();
-
-            // Assert
-            Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result);
-        }
-
-        [TestMethod]
-        public void CreateWithDependencies_DependenciesNotRegistered_Exception()
-        {
-            // Arrange
-            GenericFactory factory = new GenericFactory();
-
-            // Act & Assert
-            Assert.Throws<DependencyResolutionException>(() => factory.Create<TestServiceWithDependencies>());
-        }
-
-        [TestMethod]
-        public void CreateWithDependencies_DependenciesRegistered_TestServiceWithDependenciesObject()
-        {
-            // Arrange
-            var factory = new GenericFactory();
-
-            var mock = Substitute.For<ITestDependencyInterface>();
-            factory.RegisterOrReplaceService(mock);
-
-            // Act
-            var result = factory.Create<TestServiceWithDependencies>();
-
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.IsInstanceOfType<TestServiceWithDependencies>(result);
-        }
-
-        [TestMethod]
-        public void CreateTwice_WithoutDependencies_DoesNotThrow()
-        {
-            GenericFactory factory = new GenericFactory();
-
-            var result1 = factory.Create<TestServiceWithoutDependencies>();
-            var result2 = factory.Create<TestServiceWithoutDependencies>();
-
-            Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result1);
-            Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result2);
-        }
-
-        [TestMethod]
-        public void CreateTwice_WithDependencies_DoesNotThrow()
-        {
-            var factory = new GenericFactory();
-
-            var mock = Substitute.For<ITestDependencyInterface>();
-            factory.RegisterOrReplaceService(mock);
-
-            var result1 = factory.Create<TestServiceWithDependencies>();
-            var result2 = factory.Create<TestServiceWithDependencies>();
-
-            Assert.IsInstanceOfType<TestServiceWithDependencies>(result1);
-            Assert.IsInstanceOfType<TestServiceWithDependencies>(result2);
-        }
-
-        [TestMethod]
-        public void RegisterOrReplaceService_ServiceNull_ArgumentNullException()
-        {
-            // Arrange
-            GenericFactory factory = new GenericFactory();
-
-            // Act
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-            ITestDependencyInterface? dependency = null;
-            Action func = () => factory.RegisterOrReplaceService(dependency!);
-#else
-                    ITestDependencyInterface dependency = null;
-                    Action func = () => factory.RegisterOrReplaceService(dependency);
-#endif
-            // Assert
-            Assert.Throws<ArgumentNullException>(func);
-        }
-
         //         [TestMethod]
-        //         public void RegisterOrReplaceService_ValidService_DoesNotThrow()
+        //         public void CreateWithoutDependencies_WithoutDependencies_ReturnTestObject()
         //         {
         //             // Arrange
-        //             var factory = new GenericFactory();
-        //             var dependency = Substitute.For<ITestDependencyInterface>();
+        //             GenericFactory factory = new GenericFactory();
+
+        //             // Act
+        //             var result = factory.Create<TestServiceWithoutDependencies>();
+
+        //             // Assert
+        //             Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result);
+        //         }
+
+        //         [TestMethod]
+        //         public void CreateWithDependencies_DependenciesNotRegistered_Exception()
+        //         {
+        //             // Arrange
+        //             GenericFactory factory = new GenericFactory();
 
         //             // Act & Assert
-        //             try
-        //             {
-        //                 factory.RegisterOrReplaceService(dependency);
-        //             }
-        //             catch (Exception exception)
-        //             {
-        //                 Assert.Fail(exception.Message);
-        //             }
+        //             Assert.Throws<DependencyResolutionException>(() => factory.Create<TestServiceWithDependencies>());
         //         }
 
         //         [TestMethod]
-        //         public void EmptyDependencies_DependenciesRegistered_ShouldNotBeFound()
+        //         public void CreateWithDependencies_DependenciesRegistered_TestServiceWithDependenciesObject()
         //         {
         //             // Arrange
         //             var factory = new GenericFactory();
-        //             var dependency = Substitute.For<ITestDependencyInterface>();
 
-        //             factory.RegisterOrReplaceService(dependency);
+        //             var mock = Substitute.For<ITestDependencyInterface>();
+        //             factory.RegisterOrReplaceService(mock);
 
         //             // Act
-        //             factory.EmptyDependencies();
-        //             bool result = factory.IsRegistered<ITestDependencyInterface>();
+        //             var result = factory.Create<TestServiceWithDependencies>();
 
         //             // Assert
-        //             Assert.IsFalse(result);
+        //             Assert.IsNotNull(result);
+        //             Assert.IsInstanceOfType<TestServiceWithDependencies>(result);
         //         }
 
         //         [TestMethod]
-        //         public void EmptyDependencies_NoDependenciesRegistered_ShouldNotBeFound()
+        //         public void CreateTwice_WithoutDependencies_DoesNotThrow()
+        //         {
+        //             GenericFactory factory = new GenericFactory();
+
+        //             var result1 = factory.Create<TestServiceWithoutDependencies>();
+        //             var result2 = factory.Create<TestServiceWithoutDependencies>();
+
+        //             Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result1);
+        //             Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result2);
+        //         }
+
+        //         [TestMethod]
+        //         public void CreateTwice_WithDependencies_DoesNotThrow()
+        //         {
+        //             var factory = new GenericFactory();
+
+        //             var mock = Substitute.For<ITestDependencyInterface>();
+        //             factory.RegisterOrReplaceService(mock);
+
+        //             var result1 = factory.Create<TestServiceWithDependencies>();
+        //             var result2 = factory.Create<TestServiceWithDependencies>();
+
+        //             Assert.IsInstanceOfType<TestServiceWithDependencies>(result1);
+        //             Assert.IsInstanceOfType<TestServiceWithDependencies>(result2);
+        //         }
+
+        //         [TestMethod]
+        //         public void RegisterOrReplaceService_ServiceNull_ArgumentNullException()
         //         {
         //             // Arrange
         //             GenericFactory factory = new GenericFactory();
 
         //             // Act
-        //             factory.EmptyDependencies();
-        //             bool result = factory.IsRegistered<ITestDependencyInterface>();
-
+        // #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        //             ITestDependencyInterface? dependency = null;
+        //             Action func = () => factory.RegisterOrReplaceService(dependency!);
+        // #else
+        //                     ITestDependencyInterface dependency = null;
+        //                     Action func = () => factory.RegisterOrReplaceService(dependency);
+        // #endif
         //             // Assert
-        //             Assert.IsFalse(result);
+        //             Assert.Throws<ArgumentNullException>(func);
         //         }
 
-        //         [TestMethod]
-        //         public void IsRegistered_NotRegisterd_ShouldBeFalse()
-        //         {
-        //             // Arrange
-        //             GenericFactory factory = new GenericFactory();
+        [TestMethod]
+        public void RegisterOrReplaceService_ValidService_DoesNotThrow()
+        {
+            // Arrange
+            var factory = new GenericFactory();
+            var dependency = Substitute.For<ITestDependencyInterface>();
 
-        //             // Act
-        //             bool result = factory.IsRegistered<ITestDependencyInterface>();
+            // Act & Assert
+            try
+            {
+                factory.RegisterOrReplaceService(dependency);
+            }
+            catch (Exception exception)
+            {
+                Assert.Fail(exception.Message);
+            }
+        }
 
-        //             // Assert
-        //             Assert.IsFalse(result);
-        //         }
+        [TestMethod]
+        public void EmptyDependencies_DependenciesRegistered_ShouldNotBeFound()
+        {
+            // Arrange
+            var factory = new GenericFactory();
+            var dependency = Substitute.For<ITestDependencyInterface>();
 
-        //         [TestMethod]
-        //         public void IsRegistered_IsRegistered_ShouldBeTrue()
-        //         {
-        //             // Arrange
-        //             var factory = new GenericFactory();
-        //             var dependency = Substitute.For<ITestDependencyInterface>();
-        //             factory.RegisterOrReplaceService(dependency);
+            factory.RegisterOrReplaceService(dependency);
 
-        //             // Act
-        //             bool result = factory.IsRegistered<ITestDependencyInterface>();
+            // Act
+            factory.EmptyDependencies();
+            bool result = factory.IsRegistered<ITestDependencyInterface>();
 
-        //             // Assert
-        //             Assert.IsTrue(result);
-        //         }
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void EmptyDependencies_NoDependenciesRegistered_ShouldNotBeFound()
+        {
+            // Arrange
+            GenericFactory factory = new GenericFactory();
+
+            // Act
+            factory.EmptyDependencies();
+            bool result = factory.IsRegistered<ITestDependencyInterface>();
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void IsRegistered_NotRegisterd_ShouldBeFalse()
+        {
+            // Arrange
+            GenericFactory factory = new GenericFactory();
+
+            // Act
+            bool result = factory.IsRegistered<ITestDependencyInterface>();
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void IsRegistered_IsRegistered_ShouldBeTrue()
+        {
+            // Arrange
+            var factory = new GenericFactory();
+            var dependency = Substitute.For<ITestDependencyInterface>();
+            factory.RegisterOrReplaceService(dependency);
+
+            // Act
+            bool result = factory.IsRegistered<ITestDependencyInterface>();
+
+            // Assert
+            Assert.IsTrue(result);
+        }
 
         //         [TestMethod]
         //         public void RemoveService_NotRegistered_ShouldNotBeFound()
