@@ -97,7 +97,7 @@ namespace Matr.Utilities.Test
         /// Gets all currently registered services.
         /// </summary>
         /// <returns>List of tuples of service types and services.</returns>
-        public virtual List<(Type, object)> GetRegisteredServices()
+        public List<(Type, object)> GetRegisteredServices()
         {
             return GetOwnServices(container).ToList();
         }

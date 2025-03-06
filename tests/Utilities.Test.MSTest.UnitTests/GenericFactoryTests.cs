@@ -342,21 +342,21 @@ namespace Matr.Utilities.Test.UnitTests
         //     Assert.HasCount(1, result);
         // }
 
-        // [TestMethod]
-        // public void GetRegisteredServices_MultiRegistered_NotBeEmpty()
-        // {
-        //     // Arrange
-        //     var factory = new GenericFactory();
-        //     factory.RegisterOrReplaceService(new TestServiceWithoutDependencies());
-        //     factory.RegisterOrReplaceService(Substitute.For<ITestDependencyInterface>());
-        //     factory.RegisterOrReplaceService(Substitute.For<IOtherDependencyInterface>());
+        [TestMethod]
+        public void GetRegisteredServices_MultiRegistered_NotBeEmpty()
+        {
+            // Arrange
+            var factory = new GenericFactory();
+            factory.RegisterOrReplaceService(new TestServiceWithoutDependencies());
+            factory.RegisterOrReplaceService(Substitute.For<ITestDependencyInterface>());
+            factory.RegisterOrReplaceService(Substitute.For<IOtherDependencyInterface>());
 
-        //     // Act
-        //     var result = factory.GetRegisteredServices();
+            // Act
+            var result = factory.GetRegisteredServices();
 
-        //     // Assert
-        //     Assert.IsNotEmpty(result);
-        // }
+            // Assert
+            Assert.IsNotEmpty(result);
+        }
 
         //         [TestMethod]
         //         public void FluentRegistration_OneRegistered_NotBeEmpty()
