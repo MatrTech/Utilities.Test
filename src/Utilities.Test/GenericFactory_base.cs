@@ -2,6 +2,7 @@ using Autofac;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Autofac.Core;
 
 namespace Matr.Utilities.Test
 {
