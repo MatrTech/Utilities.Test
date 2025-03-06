@@ -8,72 +8,72 @@ namespace Matr.Utilities.Test.UnitTests
     [TestClass]
     public class GenericFactoryTests
     {
-        //         [TestMethod]
-        //         public void CreateWithoutDependencies_WithoutDependencies_ReturnTestObject()
-        //         {
-        //             // Arrange
-        //             GenericFactory factory = new GenericFactory();
+        [TestMethod]
+        public void CreateWithoutDependencies_WithoutDependencies_ReturnTestObject()
+        {
+            // Arrange
+            GenericFactory factory = new GenericFactory();
 
-        //             // Act
-        //             var result = factory.Create<TestServiceWithoutDependencies>();
+            // Act
+            var result = factory.Create<TestServiceWithoutDependencies>();
 
-        //             // Assert
-        //             Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result);
-        //         }
+            // Assert
+            Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result);
+        }
 
-        //         [TestMethod]
-        //         public void CreateWithDependencies_DependenciesNotRegistered_Exception()
-        //         {
-        //             // Arrange
-        //             GenericFactory factory = new GenericFactory();
+        [TestMethod]
+        public void CreateWithDependencies_DependenciesNotRegistered_Exception()
+        {
+            // Arrange
+            GenericFactory factory = new GenericFactory();
 
-        //             // Act & Assert
-        //             Assert.Throws<DependencyResolutionException>(() => factory.Create<TestServiceWithDependencies>());
-        //         }
+            // Act & Assert
+            Assert.Throws<DependencyResolutionException>(() => factory.Create<TestServiceWithDependencies>());
+        }
 
-        //         [TestMethod]
-        //         public void CreateWithDependencies_DependenciesRegistered_TestServiceWithDependenciesObject()
-        //         {
-        //             // Arrange
-        //             var factory = new GenericFactory();
+        [TestMethod]
+        public void CreateWithDependencies_DependenciesRegistered_TestServiceWithDependenciesObject()
+        {
+            // Arrange
+            var factory = new GenericFactory();
 
-        //             var mock = Substitute.For<ITestDependencyInterface>();
-        //             factory.RegisterOrReplaceService(mock);
+            var mock = Substitute.For<ITestDependencyInterface>();
+            factory.RegisterOrReplaceService(mock);
 
-        //             // Act
-        //             var result = factory.Create<TestServiceWithDependencies>();
+            // Act
+            var result = factory.Create<TestServiceWithDependencies>();
 
-        //             // Assert
-        //             Assert.IsNotNull(result);
-        //             Assert.IsInstanceOfType<TestServiceWithDependencies>(result);
-        //         }
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType<TestServiceWithDependencies>(result);
+        }
 
-        //         [TestMethod]
-        //         public void CreateTwice_WithoutDependencies_DoesNotThrow()
-        //         {
-        //             GenericFactory factory = new GenericFactory();
+        [TestMethod]
+        public void CreateTwice_WithoutDependencies_DoesNotThrow()
+        {
+            GenericFactory factory = new GenericFactory();
 
-        //             var result1 = factory.Create<TestServiceWithoutDependencies>();
-        //             var result2 = factory.Create<TestServiceWithoutDependencies>();
+            var result1 = factory.Create<TestServiceWithoutDependencies>();
+            var result2 = factory.Create<TestServiceWithoutDependencies>();
 
-        //             Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result1);
-        //             Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result2);
-        //         }
+            Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result1);
+            Assert.IsInstanceOfType<TestServiceWithoutDependencies>(result2);
+        }
 
-        //         [TestMethod]
-        //         public void CreateTwice_WithDependencies_DoesNotThrow()
-        //         {
-        //             var factory = new GenericFactory();
+        [TestMethod]
+        public void CreateTwice_WithDependencies_DoesNotThrow()
+        {
+            var factory = new GenericFactory();
 
-        //             var mock = Substitute.For<ITestDependencyInterface>();
-        //             factory.RegisterOrReplaceService(mock);
+            var mock = Substitute.For<ITestDependencyInterface>();
+            factory.RegisterOrReplaceService(mock);
 
-        //             var result1 = factory.Create<TestServiceWithDependencies>();
-        //             var result2 = factory.Create<TestServiceWithDependencies>();
+            var result1 = factory.Create<TestServiceWithDependencies>();
+            var result2 = factory.Create<TestServiceWithDependencies>();
 
-        //             Assert.IsInstanceOfType<TestServiceWithDependencies>(result1);
-        //             Assert.IsInstanceOfType<TestServiceWithDependencies>(result2);
-        //         }
+            Assert.IsInstanceOfType<TestServiceWithDependencies>(result1);
+            Assert.IsInstanceOfType<TestServiceWithDependencies>(result2);
+        }
 
         [TestMethod]
         public void RegisterOrReplaceService_ServiceNull_ArgumentNullException()
