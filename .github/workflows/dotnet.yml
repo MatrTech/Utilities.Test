@@ -28,4 +28,4 @@ jobs:
         run: dotnet --list-runtimes
 
       - name: Test
-        run: dotnet test --configuration Release --no-build --no-restore --verbosity detailed
+        run: dotnet test --configuration Release --no-build --no-restore --verbosity detailed --framework net47
