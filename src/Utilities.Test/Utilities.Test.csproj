@@ -3,6 +3,7 @@
 		<TargetFrameworks>
 			netstandard2.0;
 			netstandard2.1;
+			net7.0;
 		</TargetFrameworks>
 		<RootNamespace>Matr.Utilities.Test</RootNamespace>
 		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -32,7 +33,7 @@
 		</PropertyGroup>
 	</Target>
 
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard7.0' OR '$(TargetFramework)' == 'netstandard2.1' ">
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
@@ -47,7 +48,7 @@
 		<Compile Include="Extensions\GenericFactoryExtensions.cs" />
 	</ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' != 'netstandard2.0' ">
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard7.0' OR '$(TargetFramework)' == 'netstandard2.1' ">
 		<Compile Include="GenericFactory.cs" />
 	</ItemGroup>
 
