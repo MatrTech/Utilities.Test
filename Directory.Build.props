@@ -1,6 +1,7 @@
 <Project>
     <PropertyGroup>
         <EnableMSTestRunner>true</EnableMSTestRunner>
+        <EnableNUnitRunner>true</EnableNUnitRunner>
         <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
 
         <!-- Optional, you will find more info in docs -->
