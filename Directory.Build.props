@@ -1,0 +1,7 @@
+<PropertyGroup>
+    <EnableMSTestRunner>true</EnableMSTestRunner>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+
+     <!-- Optional, you will find more info in docs -->
+    <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
+</PropertyGroup>
