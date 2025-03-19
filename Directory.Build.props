@@ -6,5 +6,6 @@
         <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
         <!-- Optional, you will find more info in docs -->
         <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
+        <CheckEolTargetFramework>false</CheckEolTargetFramework>
     </PropertyGroup>
 </Project>
