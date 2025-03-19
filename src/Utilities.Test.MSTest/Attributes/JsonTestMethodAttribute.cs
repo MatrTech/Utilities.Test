@@ -33,7 +33,7 @@ namespace Matr.Utilities.Test.Attributes
 
             var data = JsonSerializer.Deserialize<IEnumerable<TType>>(json)
                 ?? throw new JsonException();
-                    
+
             return data
                 .Where(x => x is not null)
                 .Select(x => testMethod.Invoke(new object[] { x! }))
@@ -64,7 +64,7 @@ namespace Matr.Utilities.Test.Attributes
                 var json = r.ReadToEnd();
 
                 var dataArray = JsonSerializer.Deserialize(json, _dataType.MakeArrayType());
-#if NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
                 return (dataArray as IEnumerable).Cast<object>()
 #else
                 return (dataArray as IEnumerable)!.Cast<object>()
