@@ -1,11 +1,33 @@
 <Project>
-    <PropertyGroup>
-        <EnableMSTestRunner>true</EnableMSTestRunner>
-        <EnableNUnitRunner>true</EnableNUnitRunner>
-        <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
-        <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-        <!-- Optional, you will find more info in docs -->
-        <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
-        <CheckEolTargetFramework>false</CheckEolTargetFramework>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>
+      net462;
+      net47;
+      net471;
+      net472;
+      net48;
+      net481;
+      net5.0;
+      net6.0;
+      net7.0;
+      net8.0;
+      net9.0;
+      net10.0;
+    </TargetFrameworks>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup
+    Condition="'$(TargetFramework.TrimEnd(`0123456789`))' != 'net' OR '$(TargetFramework)' == 'netstandard2.1' ">
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableMSTestRunner>true</EnableMSTestRunner>
+    <EnableNUnitRunner>true</EnableNUnitRunner>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <!-- Optional, you will find more info in docs -->
+    <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
+  </PropertyGroup>
 </Project>
