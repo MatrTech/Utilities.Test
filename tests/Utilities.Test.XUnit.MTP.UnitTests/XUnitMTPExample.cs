@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Utilities.Test.XUnit.MTP.UnitTests
 {
-    public class UnitTest1
+    public class XUnitMTPExample
     {
         public class XUnitTestExamples : TestBase
         {
