@@ -5,7 +5,7 @@ using NSubstitute;
 namespace Utilities.Test.MSTest.MTP.UnitTests
 {
     [TestClass]
-    public sealed class Test1 : TestBase
+    public sealed class MTPTestExample : TestBase
     {
         [TestMethod]
         public void TestMethod1()
@@ -16,8 +16,8 @@ namespace Utilities.Test.MSTest.MTP.UnitTests
             mockedDependency.Add(Arg.Any<int>(), Arg.Any<int>())
                 .Returns(returnValue);
 
-            _factory.RegisterOrReplaceService(mockedDependency);
-            var testClass = _factory.Create<TestClass>();
+            factory.RegisterOrReplaceService(mockedDependency);
+            var testClass = factory.Create<TestClass>();
 
             var result = testClass.DoAddition(1, 1);
 
@@ -38,6 +38,4 @@ namespace Utilities.Test.MSTest.MTP.UnitTests
             int Add(int x, int y);
         }
     }
-
-
 }
