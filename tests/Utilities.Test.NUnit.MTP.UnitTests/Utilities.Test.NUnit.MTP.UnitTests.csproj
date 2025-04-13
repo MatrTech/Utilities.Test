@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-
-    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-    <IsPackable>false</IsPackable>
-    <RootNamespace>Matr.Utilities.Test.NUnitTests</RootNamespace>
-    <OutputType>Exe</OutputType>
+    <!-- Enable the NUnit runner, this is an opt-in feature -->
     <EnableNUnitRunner>true</EnableNUnitRunner>
     <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-    <!-- Optional, you will find more info in docs -->
-    <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
+    <!--
+      Displays error on console in addition to the log file. Note that this feature comes with a performance impact.
+      For more information, visit https://learn.microsoft.com/dotnet/core/testing/microsoft-testing-platform-integration-dotnet-test#show-failure-per-test
+      -->
+    <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
+
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,20 +19,16 @@
     <PackageReference Include="NSubstitute" Version="5.3.0" />
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
-    <PackageReference Include="coverlet.collector" Version="3.2.0">
-      <PrivateAssets>all</PrivateAssets>
+    <PackageReference Include="NUnit.Analyzers" Version="4.6.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Utilities.Test.NUnit\Utilities.Test.NUnit.csproj" />
     <ProjectReference Include="..\..\src\Utilities.Test\Utilities.Test.csproj" />
+    <ProjectReference Include="..\..\src\Utilities.Test.NUnit\Utilities.Test.NUnit.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="data.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>

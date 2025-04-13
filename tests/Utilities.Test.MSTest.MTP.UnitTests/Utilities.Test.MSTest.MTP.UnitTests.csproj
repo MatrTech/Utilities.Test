@@ -1,0 +1,19 @@
+<Project Sdk="MSTest.Sdk/3.8.2">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Utilities.Test.MSTest\Utilities.Test.MSTest.csproj" />
+    <ProjectReference Include="..\..\src\Utilities.Test\Utilities.Test.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NSubstitute" Version="5.3.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <EnableMSTestRunner>true</EnableMSTestRunner>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <!-- Optional, you will find more info in docs -->
+    <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
+  </PropertyGroup>
+</Project>

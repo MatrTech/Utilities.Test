@@ -1,13 +1,15 @@
-﻿using NSubstitute;
-using Matr.Utilities.Test;
-using Xunit;
+﻿using Matr.Utilities.Test;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 
-namespace Matr.Utilities.Test.XUnitTests
+namespace Utilities.Test.MSTest.VSTest.UnitTests
 {
-    public class XUnitTestExamples : TestBase
+
+    [TestClass]
+    public sealed class Test1 : TestBase
     {
-        [Fact]
-        public void Test1()
+        [TestMethod]
+        public void TestMethod1()
         {
             var returnValue = 1;
 
@@ -20,22 +22,16 @@ namespace Matr.Utilities.Test.XUnitTests
 
             var result = testClass.DoAddition(1, 1);
 
-            Assert.Equal(returnValue, result);
+            Assert.AreEqual(returnValue, result);
+
         }
 
         public class TestClass
         {
-            private readonly ITestDependency _dependency;
+            private readonly ITestDependency _someDependency;
 
-            public TestClass(ITestDependency testDependency)
-            {
-                _dependency = testDependency;
-            }
-
-            public int DoAddition(int x, int y)
-            {
-                return _dependency.Add(x, y);
-            }
+            public TestClass(ITestDependency someDependency) => _someDependency = someDependency;
+            public int DoAddition(int x, int y) => _someDependency.Add(x, y);
         }
 
         public interface ITestDependency
@@ -43,5 +39,4 @@ namespace Matr.Utilities.Test.XUnitTests
             int Add(int x, int y);
         }
     }
-
 }

@@ -1,8 +1,8 @@
-﻿using NSubstitute;
+﻿using Xunit;
 using Matr.Utilities.Test;
-using Xunit;
+using NSubstitute;
 
-namespace Matr.Utilities.Test.XUnitTests
+namespace Utilities.Test.XUnit.VSTest.UnitTests
 {
     public class XUnitTestExamples : TestBase
     {
@@ -43,5 +43,4 @@ namespace Matr.Utilities.Test.XUnitTests
             int Add(int x, int y);
         }
     }
-
 }
