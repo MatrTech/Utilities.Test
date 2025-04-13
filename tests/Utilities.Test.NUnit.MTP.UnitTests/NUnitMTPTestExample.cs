@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using NSubstitute;
+using Matr.Utilities.Test;
 
 namespace Utilities.Test.NUnit.MTP.UnitTests
 {
