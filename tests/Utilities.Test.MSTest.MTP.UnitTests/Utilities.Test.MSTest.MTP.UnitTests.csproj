@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <EnableMSTestRunner>true</EnableMSTestRunner>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <!-- Optional, you will find more info in docs -->
+    <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
   </PropertyGroup>
 </Project>

@@ -6,6 +6,11 @@
     <IsPackable>false</IsPackable>
     <RootNamespace>Matr.Utilities.Test.NUnitTests</RootNamespace>
     <OutputType>Exe</OutputType>
+    <EnableNUnitRunner>true</EnableNUnitRunner>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <!-- Optional, you will find more info in docs -->
+    <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
   </PropertyGroup>
 
   <ItemGroup>

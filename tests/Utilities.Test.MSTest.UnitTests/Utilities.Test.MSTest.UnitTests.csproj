@@ -4,6 +4,11 @@
     <IsPackable>false</IsPackable>
     <RootNamespace>Matr.Utilities.Test.UnitTests</RootNamespace>
     <OutputType>Exe</OutputType>
+    <EnableMSTestRunner>true</EnableMSTestRunner>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <!-- Optional, you will find more info in docs -->
+    <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>
   </PropertyGroup>
 
 
