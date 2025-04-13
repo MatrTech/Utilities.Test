@@ -1,5 +1,6 @@
 ﻿using Xunit;
 using Matr.Utilities.Test;
+using NSubstitute;
 
 namespace Utilities.Test.XUnit.VSTest.UnitTests
 {
