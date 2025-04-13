@@ -2,6 +2,6 @@
 {
     public abstract class TestBase
     {
-        protected readonly GenericFactory factory = new GenericFactory();
+        protected readonly GenericFactory _factory = new GenericFactory();
     }
 }
