@@ -3,26 +3,27 @@ name: .NET Build
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
-    runs-on: ubuntu-22.04
+    build:
+        runs-on: ubuntu-22.04
 
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: |
-            5.0.x
-            6.0.x
-            7.0.x
-            8.0.x
-            9.0.x
-            10.0.x
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: |
+                      5.0.x
+                      6.0.x
+                      7.0.x
+                      8.0.x
+                      9.0.x
+                      10.0.x
+                      11.0.x
 
-      - name: Restore dependencies
-        run: dotnet restore
+            - name: Restore dependencies
+              run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+            - name: Build
+              run: dotnet build --configuration Release --no-restore
 
-      - name: Test
-        run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
+            - name: Test
+              run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
